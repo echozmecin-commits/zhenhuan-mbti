@@ -45,6 +45,12 @@
 - **纯前端**：答题数据只存在内存里，不上传后端；页面会请求 Google Fonts（可自行替换为本地字体）。
 - **响应式**：桌面和手机都能完成测试。
 
+## 截图
+
+<p align="center">
+  <img src="docs/images/screenshot-home.png" alt="甄嬛传 MBTI 开始页截图" width="80%" />
+</p>
+
 ## 快速开始
 
 需要 Node.js `^20.19.0 || >=22.12.0`（Vite 8 的要求）。
