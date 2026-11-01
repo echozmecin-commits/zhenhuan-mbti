@@ -1,8 +1,19 @@
 {
-  "name": "zhenhuanzhuan-test",
+  "name": "zhenhuan-mbti",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "甄嬛传主题的五维娱乐性格测试：20 道情境题，匹配 23 个角色",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/echozmecin-commits/zhenhuan-mbti.git"
+  },
+  "homepage": "https://echozmecin-commits.github.io/zhenhuan-mbti/",
+  "keywords": ["vue", "vite", "quiz", "personality-test", "zhenhuanzhuan"],
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",

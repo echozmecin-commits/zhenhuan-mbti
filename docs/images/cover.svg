@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">你是甄嬛传里的谁？</title>
+  <desc id="desc">深红与金色调的甄嬛传主题性格测试封面，包含宫墙剪影、五维雷达图和 20 道题 / 23 个角色的说明。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a0b0b"/>
+      <stop offset="1" stop-color="#120606"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e8cf9a"/>
+      <stop offset="1" stop-color="#c9a96e"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="72%" cy="42%" r="50%">
+      <stop offset="0" stop-color="#c9a96e" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#120606" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect width="1280" height="640" fill="url(#halo)"/>
+  <g opacity=".22" fill="#c9a96e">
+    <path d="M0 540h1280v100H0z"/>
+    <path d="M0 520h1280v12H0z"/>
+    <path d="M60 470h90v50H60zM180 470h90v50h-90zM300 470h90v50h-90zM420 470h90v50h-90zM540 470h90v50h-90zM660 470h90v50h-90zM780 470h90v50h-90zM900 470h90v50h-90zM1020 470h90v50h-90zM1140 470h90v50h-90z"/>
+  </g>
+  <g transform="translate(900 120)" opacity=".8">
+    <polygon points="150,10 290,112 236,278 64,278 10,112" fill="none" stroke="#c9a96e" stroke-opacity=".45" stroke-width="1.5"/>
+    <polygon points="150,46 258,124 216,254 84,254 42,124" fill="none" stroke="#c9a96e" stroke-opacity=".2" stroke-width="1"/>
+    <polygon points="150,82 226,137 197,231 103,231 74,137" fill="none" stroke="#c9a96e" stroke-opacity=".15" stroke-width="1"/>
+    <polygon points="150,40 252,124 196,236 96,210 64,124" fill="#8b0000" fill-opacity=".28" stroke="#e8cf9a" stroke-width="2"/>
+    <circle cx="150" cy="40" r="4" fill="#e8cf9a"/><circle cx="252" cy="124" r="4" fill="#e8cf9a"/><circle cx="196" cy="236" r="4" fill="#e8cf9a"/><circle cx="96" cy="210" r="4" fill="#e8cf9a"/><circle cx="64" cy="124" r="4" fill="#e8cf9a"/>
+  </g>
+  <text x="82" y="150" fill="#c9a96e" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="18" letter-spacing="6">A FAN-MADE PERSONALITY QUIZ</text>
+  <text x="78" y="255" fill="url(#gold)" font-family="'Noto Serif SC','STSong',serif" font-size="68" font-weight="700" letter-spacing="4">你是甄嬛传里的谁？</text>
+  <text x="82" y="312" fill="#e8cf9a" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="26" letter-spacing="3">20 道宫廷情境题 · 五维性格分析 · 23 个角色</text>
+  <text x="82" y="360" fill="#b99e78" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="18" letter-spacing="1">回答 20 道题，看看你的权谋、情感、联盟、意志、欲望更像谁</text>
+  <g font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="15">
+    <rect x="82" y="408" width="126" height="38" rx="19" fill="#c9a96e" fill-opacity=".1" stroke="#c9a96e" stroke-opacity=".4"/>
+    <text x="145" y="433" text-anchor="middle" fill="#e8cf9a">Vue 3 + Vite</text>
+    <rect x="220" y="408" width="120" height="38" rx="19" fill="#c9a96e" fill-opacity=".1" stroke="#c9a96e" stroke-opacity=".4"/>
+    <text x="280" y="433" text-anchor="middle" fill="#e8cf9a">纯前端</text>
+    <rect x="352" y="408" width="150" height="38" rx="19" fill="#c9a96e" fill-opacity=".1" stroke="#c9a96e" stroke-opacity=".4"/>
+    <text x="427" y="433" text-anchor="middle" fill="#e8cf9a">启发式匹配</text>
+  </g>
+  <text x="82" y="552" fill="#8a7358" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="15">非官方粉丝作品 · 仅供娱乐 · 角色与台词版权归原版权方</text>
+</svg>

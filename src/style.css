@@ -8,22 +8,32 @@
   --color-ink: #2D2D2D;
   --color-parchment: #FDF5E6;
   --color-parchment-dark: #F5E6D0;
-  --font-family-serif: 'Noto Serif SC', serif;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  --font-serif: 'Noto Serif SC', serif;
 }
 
 body {
-  font-family: var(--font-family-serif);
+  font-family: var(--font-serif);
   background-color: var(--color-parchment);
   color: var(--color-ink);
   min-height: 100vh;
+  overflow-x: clip;
 }
 
 #app {
   min-height: 100vh;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-crimson);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

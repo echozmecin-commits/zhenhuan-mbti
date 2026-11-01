@@ -37,6 +37,10 @@ function startQuiz() {
 }
 
 function handleAnswer(answer) {
+  const current = questions[currentIndex.value]
+  // 防止过渡动画期间旧题按钮被二次点击，把答案写到新题上
+  if (!current || answer.questionId !== current.id) return
+
   answers[currentIndex.value] = answer
 
   if (currentIndex.value < questions.length - 1) {

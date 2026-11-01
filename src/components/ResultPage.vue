@@ -16,8 +16,8 @@
       </h1>
 
       <!-- Code -->
-      <p class="text-center text-lg text-gold font-semibold tracking-[0.3em] mb-4">
-        {{ result.character.code }}
+      <p class="text-center text-sm text-ink/70 font-semibold tracking-[0.2em] mb-4">
+        角色代号 {{ result.character.code }} <span class="font-normal tracking-normal">· 非严格 MBTI</span>
       </p>
 
       <!-- Title -->
@@ -27,7 +27,14 @@
 
       <!-- Radar chart -->
       <div class="flex justify-center mb-8">
-        <svg viewBox="0 0 300 300" class="w-64 h-64 md:w-72 md:h-72">
+        <svg
+          viewBox="0 0 300 300"
+          class="w-64 h-64 md:w-72 md:h-72"
+          role="img"
+          aria-labelledby="radarTitle radarDesc"
+        >
+          <title id="radarTitle">五维性格雷达图</title>
+          <desc id="radarDesc">对比你的五维得分与{{ result.character.name }}的角色设定；维度为权谋、情感、联盟、意志、欲望。</desc>
           <!-- Background pentagons -->
           <polygon
             v-for="level in [1, 0.75, 0.5, 0.25]"
@@ -95,7 +102,7 @@
           <span>{{ result.character.name }}</span>
         </div>
         <div class="flex items-center gap-2">
-          <div class="w-4 h-0.5 bg-gold border-dashed"></div>
+          <div class="w-4 border-t-2 border-dashed border-gold"></div>
           <span>你</span>
         </div>
       </div>
@@ -137,7 +144,7 @@
 
       <!-- Similar characters -->
       <div class="bg-white/40 border border-gold/20 rounded-sm p-5 mb-8">
-        <h3 class="text-ink/70 font-semibold mb-2 text-sm">与你最像的人</h3>
+        <h3 class="text-ink/70 font-semibold mb-2 text-sm">气质相近的角色（编辑精选）</h3>
         <div class="flex gap-3">
           <span
             v-for="name in result.character.similar"
@@ -171,10 +178,12 @@
       <div class="flex flex-col gap-3 items-center">
         <button
           @click="copyResult"
-          class="w-full max-w-xs py-3 px-6 bg-gold text-white font-semibold tracking-wider rounded-sm transition-all hover:bg-gold-light hover:shadow-md active:scale-95"
+          class="w-full max-w-xs py-3 px-6 bg-crimson text-parchment font-semibold tracking-wider rounded-sm transition-all hover:bg-crimson-light hover:shadow-md active:scale-95"
         >
-          {{ copied ? '已复制!' : '分享结果' }}
+          {{ copied ? '已复制链接!' : '分享结果' }}
         </button>
+        <p v-if="shareError" class="text-xs text-crimson" role="alert">{{ shareError }}</p>
+        <span class="sr-only" role="status" aria-live="polite">{{ copied ? '结果和链接已复制' : '' }}</span>
         <button
           @click="$emit('restart')"
           class="w-full max-w-xs py-3 px-6 border-2 border-crimson/30 text-crimson font-semibold tracking-wider rounded-sm transition-all hover:bg-crimson/5 active:scale-95"
@@ -205,6 +214,7 @@ const props = defineProps({
 defineEmits(['restart'])
 
 const copied = ref(false)
+const shareError = ref('')
 
 const radarLabels = ['权谋', '情感', '联盟', '意志', '欲望']
 const dims = ['P', 'E', 'A', 'W', 'D']
@@ -268,13 +278,27 @@ const userPoints = computed(() => {
 })
 
 async function copyResult() {
-  const text = `【甄嬛传性格测试】我是${props.result.character.name}！「${props.result.character.title}」— ${props.result.character.poem} 你是谁？快来测试吧！`
+  shareError.value = ''
+  const url = window.location.href
+  const text = `【甄嬛传性格测试】我是${props.result.character.name}！「${props.result.character.title}」— ${props.result.character.poem} 你是哪位？${url}`
   try {
-    await navigator.clipboard.writeText(text)
+    if (navigator.share) {
+      await navigator.share({ title: '你是甄嬛传里的谁？', text, url })
+    } else {
+      await navigator.clipboard.writeText(text)
+    }
     copied.value = true
     setTimeout(() => (copied.value = false), 2000)
-  } catch {
-    copied.value = false
+  } catch (error) {
+    // 用户主动取消系统分享时不报错
+    if (error && error.name === 'AbortError') return
+    try {
+      await navigator.clipboard.writeText(text)
+      copied.value = true
+      setTimeout(() => (copied.value = false), 2000)
+    } catch {
+      shareError.value = '复制失败，请手动复制浏览器地址栏链接'
+    }
   }
 }
 </script>
