@@ -61,7 +61,7 @@ npm run build
 npm run preview
 ```
 
-`dist/` 是构建产物，已提交一份方便直接部署；日常开发以 `src/` 为准。
+`dist/` 是构建产物，已提交一份方便直接部署；日常开发以 `src/` 为准。GitHub Pages 从 `docs/` 构建，`docs/` 里放的是 `dist/` 的副本；改完源文件后跑 `npm run build`，再把 `dist/` 同步到 `docs/`（保留 `docs/images/`）。
 
 ## 匹配模型
 
